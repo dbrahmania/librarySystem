@@ -1,0 +1,15 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "a book library system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "deepak brahmania",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
