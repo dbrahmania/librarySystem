@@ -1,16 +1,10 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  font-size: 0.9rem;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,16 +12,147 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.App-body {
+  flex: 1;
+}
+.form-field {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form-field label {
+  min-width: 200px;
+}
+
+.searchBar {
+  width: 35%;
+}
+input,
+textarea {
+  font-size: 1rem;
+  padding: 5px;
+  border: 1px solid black;
+}
+.book-list {
+  width: 100%;
+  margin: auto;
+}
+
+.book-list th {
+  background: #282c34;
+  color: white;
+  font-weight: bolder;
+  font-size: larger;
+}
+.book-list th,
+.book-list td {
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  max-height: 100px;
+  text-overflow: ellipsis;
+}
+
+.book-list th:nth-child(1),
+.book-list th:nth-child(3) {
+  width: 16%;
+}
+
+.book-list td:nth-child(2),
+.book-list td:nth-child(4) {
+  text-align: left;
+}
+
+.book-list th:nth-child(2),
+.book-list th:nth-child(5) {
+  width: 16%;
+}
+.book-action {
+  display: flex;
+  justify-content: space-between;
+  margin: 3%;
+}
+
+button {
+  padding: 10px;
+  font-weight: bolder;
+  color: white;
+  background: #03a9f4;
+  margin: 0 2%;
+}
+
+@media screen and (max-width: 620px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    text-align: justify !important;
+    padding: 10px;
+    margin: 0;
+    padding-left: 50%;
+    max-height: unset !important;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 20%;
+    padding: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "ISBN";
+  }
+  td:nth-of-type(2):before {
+    content: "TITLE";
+  }
+  td:nth-of-type(3):before {
+    content: "AURTHOR";
+  }
+  td:nth-of-type(4):before {
+    content: "DESCRIPTION";
+  }
+  td:nth-of-type(5):before {
+    content: "ACTIONS";
+  }
+
+  .form-field {
+    margin: 3% 0;
+  }
+  .form-field input,
+  .form-field textarea {
+    border: 1px solid black;
+  }
+
+  .searchBar {
+    width: 60%;
   }
 }
