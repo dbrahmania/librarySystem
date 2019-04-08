@@ -16,7 +16,6 @@ export const addBook = book => {
 };
 
 export const selectBook = book => {
-  console.log(book);
   return {
     type: "SELECTED_BOOK",
     payload: book

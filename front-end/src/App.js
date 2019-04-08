@@ -68,6 +68,9 @@ class App extends Component {
           pages,
           description
         });
+        this.setState({
+          action: ""
+        });
         break;
       }
       case "Edit": {
@@ -81,6 +84,9 @@ class App extends Component {
           pages,
           description
         });
+        this.setState({
+          action: ""
+        });
         break;
       }
       default:
@@ -88,17 +94,20 @@ class App extends Component {
     }
   };
   reset = () => {
-    this.setState({
-      action: "",
-      isbn: "",
-      title: "",
-      subtitle: "",
-      author: "",
-      published: "",
-      publisher: "",
-      pages: "",
-      description: ""
-    });
+    this.setState(
+      {
+        action: "",
+        isbn: "",
+        title: "",
+        subtitle: "",
+        author: "",
+        published: "",
+        publisher: "",
+        pages: "",
+        description: ""
+      },
+      () => this.props.selectBook({})
+    );
   };
   handleEvent = e => {
     const obj = {};
@@ -134,7 +143,14 @@ class App extends Component {
               className="searchBar"
               onChange={this.handleEvent}
             />
-            <button name="action" value="Add" onClick={this.handleEvent}>
+            <button
+              name="action"
+              value="Add"
+              onClick={e => {
+                this.reset();
+                this.handleEvent(e);
+              }}
+            >
               ADD BOOK
             </button>
           </div>
@@ -142,7 +158,7 @@ class App extends Component {
             <thead>
               <tr>
                 {headers.map(item => (
-                  <th>{item}</th>
+                  <th key={item}>{item}</th>
                 ))}
               </tr>
             </thead>
@@ -254,7 +270,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     library: state.library,
     selectedBook: state.selectedBook
