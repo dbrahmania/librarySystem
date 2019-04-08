@@ -1,5 +1,5 @@
 # README
-
+- download the repository
 - Unzip "booklibrarysystem.zip".
 - Two folders are present inside
   -- `front-end`
